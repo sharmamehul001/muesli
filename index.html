@@ -3,376 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Choice | Crunchy Muesli</title>
+<title>Good Choice | Premium Crunchy Muesli</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
---primary:#a0144f;
---secondary:#d81b60;
---accent:#ffeb3b;
---dark:#111;
---light:#ffffff;
+  --primary:#a0144f;
+  --secondary:#d81b60;
+  --accent:#ffca28;
+  --dark:#111;
+  --light:#fff;
+  --shadow:rgba(0,0,0,0.15);
+  --radius:20px;
+  --transition:.3s ease-in-out;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
-scroll-behavior:smooth;
-}
+/* RESET */
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; scroll-behavior:smooth; }
+body{ background:var(--light); color:var(--dark); overflow-x:hidden; line-height:1.6; }
 
-body{
-background:#fff;
-color:#333;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
+/* HEADER */
 header{
-position:fixed;
-width:100%;
-top:0;
-left:0;
-background:rgba(160,20,79,0.9);
-backdrop-filter:blur(10px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 6%;
-z-index:1000;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  position:fixed; width:100%; top:0; left:0; z-index:1000;
+  background:rgba(255,255,255,0.95); backdrop-filter:blur(12px);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 6%; box-shadow:0 5px 20px rgba(0,0,0,0.08); transition:var(--transition);
 }
-
-header h1{
-color:white;
-font-size:24px;
-}
-
-nav a{
-color:white;
-margin-left:25px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-cursor:pointer;
-}
-
-nav a:hover{
-color:var(--accent);
-}
+header.scrolled{ background:var(--primary); }
+.logo{ font-size:28px; font-weight:900; background:linear-gradient(135deg,#a0144f,#d81b60); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.logo span{ color:white; }
+.nav-links{ display:flex; gap:30px; list-style:none; }
+.nav-links a{ color:var(--dark); text-decoration:none; font-weight:600; text-transform:uppercase; letter-spacing:1px; position:relative; transition:var(--transition); }
+.nav-links a::after{ content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--accent); transition:var(--transition); }
+.nav-links a:hover::after{ width:100%; }
+.hamburger{ display:none; cursor:pointer; font-size:28px; }
 
 /* PUNCHLINE */
 .punchline{
-margin-top:90px;
-text-align:center;
-background:linear-gradient(90deg,#ff8a80,#ff5252);
-color:white;
-padding:20px;
-font-weight:700;
-font-size:18px;
-letter-spacing:1px;
+  margin-top:90px; text-align:center; background:linear-gradient(90deg,#ff8a80,#ff5252);
+  color:white; padding:20px; font-weight:700; font-size:18px; letter-spacing:1px; text-transform:uppercase; box-shadow:0 8px 25px var(--shadow);
 }
 
 /* HERO */
 .hero{
-display:flex;
-align-items:center;
-justify-content:center;
-flex-wrap:wrap;
-padding:100px 8%;
-background:linear-gradient(135deg,#ffe6ef,#ffffff);
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
+  padding:120px 6%; background:linear-gradient(135deg,#ffe6ef,#ffffff);
 }
+.hero-text{ max-width:550px; animation:fadeUp 1s ease forwards; }
+.hero-text h2{ font-size:48px; color:var(--primary); margin-bottom:20px; }
+.hero-text p{ margin-bottom:30px; color:#444; font-size:16px; }
+.hero-btn{ padding:16px 40px; background:var(--primary); color:white; border:none; border-radius:50px; font-weight:bold; text-decoration:none; display:inline-block; box-shadow:0 15px 30px rgba(160,20,79,0.4); transition:var(--transition); }
+.hero-btn:hover{ background:var(--secondary); transform:translateY(-3px) scale(1.05); }
 
-.hero-text{
-max-width:550px;
-animation:fadeUp 1s ease;
-}
+/* HERO IMAGE */
+.hero-img img{ width:450px; margin-top:30px; border-radius:var(--radius); box-shadow:0 25px 60px var(--shadow); transition:var(--transition); }
+.hero-img img:hover{ transform:scale(1.07) rotate(-1deg); }
 
-.hero-text h2{
-font-size:42px;
-color:var(--primary);
-}
+/* FEATURES BAR */
+.features-bar{ background:var(--dark); padding:20px 0; }
+.features-grid{ display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; max-width:1200px; margin:auto; }
+.features-grid div{ color:white; font-weight:600; font-size:14px; display:flex; align-items:center; gap:10px; }
+.features-grid i{ color:var(--accent); }
 
-.hero-text p{
-margin:25px 0;
-}
-
-.btn{
-padding:14px 35px;
-background:var(--primary);
-color:white;
-border:none;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-transition:0.3s;
-display:inline-block;
-box-shadow:0 10px 25px rgba(160,20,79,0.4);
-}
-
-.btn:hover{
-background:#7d0f3c;
-transform:translateY(-3px);
-}
-
-.hero img{
-width:400px;
-margin-top:30px;
-border-radius:25px;
-box-shadow:0 25px 60px rgba(0,0,0,0.3);
-transition:0.4s;
-}
-
-.hero img:hover{
-transform:scale(1.05) rotate(-1deg);
-}
-
-/* FEATURES */
-.features{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:40px;
-background:var(--dark);
-color:white;
-padding:20px;
-font-size:14px;
-}
-
-/* SECTION */
-.section{
-padding:80px 8%;
-text-align:center;
-}
-
-.section h2{
-font-size:34px;
-margin-bottom:40px;
-color:var(--primary);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.card{
-background:white;
-padding:35px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
+/* CARDS */
+.section{ padding:100px 6%; text-align:center; }
+.section h2{ font-size:38px; margin-bottom:50px; color:var(--primary); position:relative; display:inline-block; }
+.section h2::after{ content:''; width:60%; height:4px; background:var(--accent); display:block; margin:10px auto 0; border-radius:2px; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+.card{ background:white; padding:35px; border-radius:var(--radius); box-shadow:0 15px 40px var(--shadow); transition:var(--transition); }
+.card:hover{ transform:translateY(-10px) scale(1.03); }
 
 /* TABLE */
-table{
-margin:auto;
-border-collapse:collapse;
-width:90%;
-max-width:650px;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-}
-
-td{
-padding:15px;
-border:1px solid #eee;
-}
-
-tr:nth-child(even){
-background:#ffe3ec;
-}
+table{ margin:auto; border-collapse:collapse; width:90%; max-width:650px; box-shadow:0 15px 40px var(--shadow); border-radius:var(--radius); overflow:hidden; }
+td, th{ padding:15px; border:1px solid #eee; }
+tr:nth-child(even){ background:#ffe3ec; }
 
 /* GALLERY */
-.gallery{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:40px;
-}
-
-.gallery img{
-width:320px;
-border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
-transition:0.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.07);
-}
+.gallery{ display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:30px; }
+.gallery img{ width:320px; border-radius:var(--radius); box-shadow:0 20px 50px var(--shadow); transition:var(--transition); }
+.gallery img:hover{ transform:scale(1.1) rotate(-2deg); }
 
 /* CTA */
-.cta{
-background:linear-gradient(90deg,#a0144f,#d81b60);
-color:white;
-padding:60px 20px;
-text-align:center;
-}
-
-.cta a{
-background:white;
-color:var(--primary);
-padding:14px 35px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-}
+.cta{ background:linear-gradient(90deg,#a0144f,#d81b60); color:white; padding:80px 20px; text-align:center; position:relative; overflow:hidden; border-radius:var(--radius); }
+.cta h2{ font-size:36px; margin-bottom:25px; }
+.cta a{ background:white; color:var(--primary); padding:16px 40px; border-radius:50px; font-weight:bold; text-decoration:none; transition:var(--transition); }
+.cta a:hover{ background:var(--accent); color:var(--dark); transform:translateY(-3px) scale(1.05); }
 
 /* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-}
+footer{ background:#111; color:white; text-align:center; padding:35px 20px; font-size:15px; }
 
-/* EMAIL POPUP */
-.popup{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%) scale(0);
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 20px 60px rgba(0,0,0,0.3);
-text-align:center;
-z-index:2000;
-transition:0.3s;
-}
-
-.popup.active{
-transform:translate(-50%,-50%) scale(1);
-}
-
-.popup button{
-margin-top:15px;
-padding:8px 20px;
-border:none;
-background:var(--primary);
-color:white;
-border-radius:20px;
-cursor:pointer;
-}
+/* POPUP */
+.popup{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0); background:white; padding:35px; border-radius:var(--radius); box-shadow:0 20px 60px var(--shadow); text-align:center; z-index:2000; transition:var(--transition); }
+.popup.active{ transform:translate(-50%,-50%) scale(1); }
+.popup button{ margin-top:20px; padding:10px 25px; border:none; background:var(--primary); color:white; border-radius:50px; cursor:pointer; font-weight:600; transition:var(--transition); }
+.popup button:hover{ background:var(--secondary); }
 
 /* ANIMATION */
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(30px);}
-to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeUp{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
 
 /* MOBILE */
 @media(max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
-}
-.hero img{
-width:300px;
-}
+  .hero{ flex-direction:column; text-align:center; }
+  .hero-img img{ width:300px; }
+  .features-grid{ flex-direction:column; }
+  .grid{ grid-template-columns:1fr; }
+  .nav-links{ display:none; }
+  .hamburger{ display:block; color:white; }
 }
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>GOOD CHOICE</h1>
-<nav>
-<a href="#">Home</a>
-<a href="#">Benefits</a>
-<a href="#">Nutrition</a>
-<a onclick="openPopup()">Contact</a>
-</nav>
+<header id="header">
+  <div class="logo">GOOD<span>CHOICE</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Benefits</a></li>
+    <li><a href="#nutrition">Nutrition</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a onclick="openPopup()">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
 </header>
 
 <div class="punchline">
-Good Choice Muesli – sehat ka asli fuel, har din super cool!
+  Good Choice Muesli – sehat ka asli fuel, har din super cool!
 </div>
 
-<section class="hero">
-<div class="hero-text">
-<h2>Start Your Day the Healthy Way</h2>
-<p>
-Premium multi-grain breakfast cereal made with rolled oats, almonds, chia seeds,
-pumpkin seeds, cranberry & dried fruits.
-Rich in fibre, protein & omega 3.
-Net Weight: <strong>400g</strong>
-</p>
-<a href="#" class="btn">Order on Amazon</a>
-</div>
-<img src="front.png" alt="Front View">
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Start Your Day the Healthy Way</h2>
+    <p>Premium multi-grain breakfast cereal made with rolled oats, almonds, chia seeds, pumpkin seeds, cranberry & dried fruits. Rich in fibre, protein & omega 3. Net Weight: <strong>400g</strong></p>
+    <a href="#" class="hero-btn">Order on Amazon</a>
+  </div>
+  <div class="hero-img">
+    <img src="front.png" alt="Front View">
+  </div>
 </section>
 
-<div class="features">
-<div>🚚 Free Shipping in India</div>
-<div>🌿 100% Natural</div>
-<div>💪 High Fibre & Protein</div>
+<div class="features-bar" id="features">
+  <div class="features-grid">
+    <div><i class="fas fa-truck"></i> Free Shipping in India</div>
+    <div><i class="fas fa-seedling"></i> 100% Natural</div>
+    <div><i class="fas fa-heart"></i> High Fibre & Protein</div>
+  </div>
 </div>
 
 <section class="section">
-<h2>Why Choose Good Choice?</h2>
-<div class="grid">
-<div class="card"><h3>409 Kcal Energy</h3><p>Long lasting morning energy.</p></div>
-<div class="card"><h3>13.24g Fibre</h3><p>Supports digestion.</p></div>
-<div class="card"><h3>Omega 3 - 3.49g</h3><p>Heart health support.</p></div>
-<div class="card"><h3>100% Natural</h3><p>No artificial colours.</p></div>
-</div>
+  <h2>Why Choose Good Choice?</h2>
+  <div class="grid">
+    <div class="card"><h3>409 Kcal Energy</h3><p>Long lasting morning energy.</p></div>
+    <div class="card"><h3>13.24g Fibre</h3><p>Supports digestion.</p></div>
+    <div class="card"><h3>Omega 3 - 3.49g</h3><p>Heart health support.</p></div>
+    <div class="card"><h3>100% Natural</h3><p>No artificial colours.</p></div>
+  </div>
 </section>
 
-<section class="section">
-<h2>Nutrition (Per 100g)</h2>
-<table>
-<tr><td>Energy</td><td>409.86 Kcal</td></tr>
-<tr><td>Total Fat</td><td>8.30g</td></tr>
-<tr><td>Carbohydrates</td><td>75.79g</td></tr>
-<tr><td>Total Sugar</td><td>14.39g</td></tr>
-<tr><td>Dietary Fibre</td><td>13.24g</td></tr>
-<tr><td>Omega 3</td><td>3.49g</td></tr>
-<tr><td>Vitamin B6</td><td>0.69mg</td></tr>
-</table>
+<section class="section" id="nutrition">
+  <h2>Nutrition (Per 100g)</h2>
+  <table>
+    <tr><td>Energy</td><td>409.86 Kcal</td></tr>
+    <tr><td>Total Fat</td><td>8.30g</td></tr>
+    <tr><td>Carbohydrates</td><td>75.79g</td></tr>
+    <tr><td>Total Sugar</td><td>14.39g</td></tr>
+    <tr><td>Dietary Fibre</td><td>13.24g</td></tr>
+    <tr><td>Omega 3</td><td>3.49g</td></tr>
+    <tr><td>Vitamin B6</td><td>0.69mg</td></tr>
+  </table>
 </section>
 
-<section class="section">
-<h2>Product View</h2>
-<div class="gallery">
-<img src="front.png">
-<img src="back.png">
-</div>
+<section class="section" id="gallery">
+  <h2>Product View</h2>
+  <div class="gallery">
+    <img src="front.png" alt="Front View">
+    <img src="back.png" alt="Back View">
+  </div>
 </section>
 
 <section class="cta">
-<h2>Make the Healthy Choice Today</h2>
-<a href="#">Buy Now on Amazon</a>
+  <h2>Make the Healthy Choice Today</h2>
+  <a href="#">Buy Now on Amazon</a>
 </section>
 
 <footer>
-© 2026 Good Choice Crunchy Muesli | Made in India 🇮🇳
+  © 2026 Good Choice Crunchy Muesli | Made in India 🇮🇳
 </footer>
 
-<!-- POPUP -->
 <div class="popup" id="popup">
-<h3>Contact Us</h3>
-<p>Email: mehulenterprises@gmail.com</p>
-<button onclick="closePopup()">Close</button>
+  <h3>Contact Us</h3>
+  <p>Email: mehulenterprises@gmail.com</p>
+  <button onclick="closePopup()">Close</button>
 </div>
 
 <script>
-function openPopup(){
-document.getElementById("popup").classList.add("active");
-}
-function closePopup(){
-document.getElementById("popup").classList.remove("active");
-}
-</script>
+function openPopup(){ document.getElementById("popup").classList.add("active"); }
+function closePopup(){ document.getElementById("popup").classList.remove("active"); }
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('active'); }
 
+window.addEventListener('scroll', function(){
+  const header = document.querySelector('header');
+  if(window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+</script>
 </body>
 </html>
