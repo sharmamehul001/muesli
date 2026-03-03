@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Good Choice | Premium Crunchy Muesli</title>
 
-<!-- Google Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
@@ -16,198 +14,157 @@
   --accent:#ffca28;
   --dark:#111;
   --light:#fff;
-  --shadow:rgba(0,0,0,0.15);
   --radius:20px;
-  --transition:.3s ease-in-out;
 }
-
-/* RESET */
-*{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; scroll-behavior:smooth; }
-body{ background:var(--light); color:var(--dark); overflow-x:hidden; line-height:1.6; }
-
-/* HEADER */
-header{
-  position:fixed; width:100%; top:0; left:0; z-index:1000;
-  background:rgba(255,255,255,0.95); backdrop-filter:blur(12px);
-  display:flex; justify-content:space-between; align-items:center;
-  padding:18px 6%; box-shadow:0 5px 20px rgba(0,0,0,0.08); transition:var(--transition);
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:#fff;color:#111;}
+header{position:fixed;width:100%;top:0;left:0;background:#fff;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);}
+.logo{font-size:28px;font-weight:900;color:var(--primary);}
+.hero{padding:140px 6%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,#ffe6ef,#ffffff);}
+.hero-text{max-width:550px;}
+.hero-text h2{font-size:45px;color:var(--primary);margin-bottom:20px;}
+.hero-btn{padding:15px 35px;background:var(--primary);color:#fff;text-decoration:none;border-radius:50px;font-weight:bold;}
+.hero-btn:hover{background:var(--secondary);}
+.hero-img img{width:400px;border-radius:20px;margin-top:30px;}
+footer{background:#111;color:#fff;text-align:center;padding:30px;margin-top:60px;}
+.popup{
+position:fixed;
+top:50%;left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+z-index:2000;
+transition:.3s;
+width:320px;
+text-align:center;
 }
-header.scrolled{ background:var(--primary); }
-.logo{ font-size:28px; font-weight:900; background:linear-gradient(135deg,#a0144f,#d81b60); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.logo span{ color:white; }
-.nav-links{ display:flex; gap:30px; list-style:none; }
-.nav-links a{ color:var(--dark); text-decoration:none; font-weight:600; text-transform:uppercase; letter-spacing:1px; position:relative; transition:var(--transition); }
-.nav-links a::after{ content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--accent); transition:var(--transition); }
-.nav-links a:hover::after{ width:100%; }
-.hamburger{ display:none; cursor:pointer; font-size:28px; }
-
-/* PUNCHLINE */
-.punchline{
-  margin-top:90px; text-align:center; background:linear-gradient(90deg,#ff8a80,#ff5252);
-  color:white; padding:20px; font-weight:700; font-size:18px; letter-spacing:1px; text-transform:uppercase; box-shadow:0 8px 25px var(--shadow);
+.popup.active{transform:translate(-50%,-50%) scale(1);}
+.popup input,.popup select{
+width:100%;
+padding:10px;
+margin:8px 0;
 }
-
-/* HERO */
-.hero{
-  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
-  padding:120px 6%; background:linear-gradient(135deg,#ffe6ef,#ffffff);
+.popup button{
+padding:10px 20px;
+border:none;
+background:var(--primary);
+color:#fff;
+border-radius:50px;
+margin-top:8px;
+cursor:pointer;
 }
-.hero-text{ max-width:550px; animation:fadeUp 1s ease forwards; }
-.hero-text h2{ font-size:48px; color:var(--primary); margin-bottom:20px; }
-.hero-text p{ margin-bottom:30px; color:#444; font-size:16px; }
-.hero-btn{ padding:16px 40px; background:var(--primary); color:white; border:none; border-radius:50px; font-weight:bold; text-decoration:none; display:inline-block; box-shadow:0 15px 30px rgba(160,20,79,0.4); transition:var(--transition); }
-.hero-btn:hover{ background:var(--secondary); transform:translateY(-3px) scale(1.05); }
-
-/* HERO IMAGE */
-.hero-img img{ width:450px; margin-top:30px; border-radius:var(--radius); box-shadow:0 25px 60px var(--shadow); transition:var(--transition); }
-.hero-img img:hover{ transform:scale(1.07) rotate(-1deg); }
-
-/* FEATURES BAR */
-.features-bar{ background:var(--dark); padding:20px 0; }
-.features-grid{ display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; max-width:1200px; margin:auto; }
-.features-grid div{ color:white; font-weight:600; font-size:14px; display:flex; align-items:center; gap:10px; }
-.features-grid i{ color:var(--accent); }
-
-/* CARDS */
-.section{ padding:100px 6%; text-align:center; }
-.section h2{ font-size:38px; margin-bottom:50px; color:var(--primary); position:relative; display:inline-block; }
-.section h2::after{ content:''; width:60%; height:4px; background:var(--accent); display:block; margin:10px auto 0; border-radius:2px; }
-.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.card{ background:white; padding:35px; border-radius:var(--radius); box-shadow:0 15px 40px var(--shadow); transition:var(--transition); }
-.card:hover{ transform:translateY(-10px) scale(1.03); }
-
-/* TABLE */
-table{ margin:auto; border-collapse:collapse; width:90%; max-width:650px; box-shadow:0 15px 40px var(--shadow); border-radius:var(--radius); overflow:hidden; }
-td, th{ padding:15px; border:1px solid #eee; }
-tr:nth-child(even){ background:#ffe3ec; }
-
-/* GALLERY */
-.gallery{ display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:30px; }
-.gallery img{ width:320px; border-radius:var(--radius); box-shadow:0 20px 50px var(--shadow); transition:var(--transition); }
-.gallery img:hover{ transform:scale(1.1) rotate(-2deg); }
-
-/* CTA */
-.cta{ background:linear-gradient(90deg,#a0144f,#d81b60); color:white; padding:80px 20px; text-align:center; position:relative; overflow:hidden; border-radius:var(--radius); }
-.cta h2{ font-size:36px; margin-bottom:25px; }
-.cta a{ background:white; color:var(--primary); padding:16px 40px; border-radius:50px; font-weight:bold; text-decoration:none; transition:var(--transition); }
-.cta a:hover{ background:var(--accent); color:var(--dark); transform:translateY(-3px) scale(1.05); }
-
-/* FOOTER */
-footer{ background:#111; color:white; text-align:center; padding:35px 20px; font-size:15px; }
-
-/* POPUP */
-.popup{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0); background:white; padding:35px; border-radius:var(--radius); box-shadow:0 20px 60px var(--shadow); text-align:center; z-index:2000; transition:var(--transition); }
-.popup.active{ transform:translate(-50%,-50%) scale(1); }
-.popup button{ margin-top:20px; padding:10px 25px; border:none; background:var(--primary); color:white; border-radius:50px; cursor:pointer; font-weight:600; transition:var(--transition); }
-.popup button:hover{ background:var(--secondary); }
-
-/* ANIMATION */
-@keyframes fadeUp{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero{ flex-direction:column; text-align:center; }
-  .hero-img img{ width:300px; }
-  .features-grid{ flex-direction:column; }
-  .grid{ grid-template-columns:1fr; }
-  .nav-links{ display:none; }
-  .hamburger{ display:block; color:white; }
-}
+.popup button:hover{background:var(--secondary);}
 </style>
 </head>
 <body>
 
-<header id="header">
-  <div class="logo">GOOD<span>CHOICE</span></div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#features">Benefits</a></li>
-    <li><a href="#nutrition">Nutrition</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a onclick="openPopup()">Contact</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+<header>
+<div class="logo">GOOD CHOICE</div>
 </header>
 
-<div class="punchline">
-  Good Choice Muesli – sehat ka asli fuel, har din super cool!
+<section class="hero">
+<div class="hero-text">
+<h2>Start Your Day the Healthy Way</h2>
+<p>Premium multi-grain breakfast cereal made with oats, almonds & seeds. Net Weight: <strong>400g</strong></p>
+<a href="#" class="hero-btn" onclick="openOrderModal()">Order Now</a>
 </div>
-
-<section class="hero" id="home">
-  <div class="hero-text">
-    <h2>Start Your Day the Healthy Way</h2>
-    <p>Premium multi-grain breakfast cereal made with rolled oats, almonds, chia seeds, pumpkin seeds, cranberry & dried fruits. Rich in fibre, protein & omega 3. Net Weight: <strong>400g</strong></p>
-    <a href="#" class="hero-btn">Order on Amazon</a>
-  </div>
-  <div class="hero-img">
-    <img src="front.png" alt="Front View">
-  </div>
-</section>
-
-<div class="features-bar" id="features">
-  <div class="features-grid">
-    <div><i class="fas fa-truck"></i> Free Shipping in India</div>
-    <div><i class="fas fa-seedling"></i> 100% Natural</div>
-    <div><i class="fas fa-heart"></i> High Fibre & Protein</div>
-  </div>
+<div class="hero-img">
+<img src="front.png" alt="Product">
 </div>
-
-<section class="section">
-  <h2>Why Choose Good Choice?</h2>
-  <div class="grid">
-    <div class="card"><h3>409 Kcal Energy</h3><p>Long lasting morning energy.</p></div>
-    <div class="card"><h3>13.24g Fibre</h3><p>Supports digestion.</p></div>
-    <div class="card"><h3>Omega 3 - 3.49g</h3><p>Heart health support.</p></div>
-    <div class="card"><h3>100% Natural</h3><p>No artificial colours.</p></div>
-  </div>
-</section>
-
-<section class="section" id="nutrition">
-  <h2>Nutrition (Per 100g)</h2>
-  <table>
-    <tr><td>Energy</td><td>409.86 Kcal</td></tr>
-    <tr><td>Total Fat</td><td>8.30g</td></tr>
-    <tr><td>Carbohydrates</td><td>75.79g</td></tr>
-    <tr><td>Total Sugar</td><td>14.39g</td></tr>
-    <tr><td>Dietary Fibre</td><td>13.24g</td></tr>
-    <tr><td>Omega 3</td><td>3.49g</td></tr>
-    <tr><td>Vitamin B6</td><td>0.69mg</td></tr>
-  </table>
-</section>
-
-<section class="section" id="gallery">
-  <h2>Product View</h2>
-  <div class="gallery">
-    <img src="front.png" alt="Front View">
-    <img src="back.png" alt="Back View">
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Make the Healthy Choice Today</h2>
-  <a href="#">Buy Now on Amazon</a>
 </section>
 
 <footer>
-  © 2026 Good Choice Crunchy Muesli | Made in India 🇮🇳
+© 2026 Good Choice Crunchy Muesli | Made in India 🇮🇳
 </footer>
 
-<div class="popup" id="popup">
-  <h3>Contact Us</h3>
-  <p>Email: mehulenterprises@gmail.com</p>
-  <button onclick="closePopup()">Close</button>
+<!-- ORDER MODAL -->
+<div class="popup" id="orderModal">
+<h3>Login / Signup</h3>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signup()">Signup</button>
+<button onclick="login()">Login</button>
+
+<div id="orderSection" style="display:none;margin-top:15px;">
+<h3>Place Order</h3>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="address" placeholder="Address">
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<select id="payment">
+<option>Cash on Delivery</option>
+<option>Online Payment</option>
+</select>
+
+<button onclick="placeOrder()">Submit Order</button>
 </div>
 
-<script>
-function openPopup(){ document.getElementById("popup").classList.add("active"); }
-function closePopup(){ document.getElementById("popup").classList.remove("active"); }
-function toggleMenu(){ document.getElementById('navLinks').classList.toggle('active'); }
+<button onclick="closeOrderModal()" style="background:gray;">Close</button>
+</div>
 
-window.addEventListener('scroll', function(){
-  const header = document.querySelector('header');
-  if(window.scrollY > 50) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_KEY",
+  authDomain: "PASTE_YOUR_DOMAIN",
+  projectId: "PASTE_YOUR_PROJECT_ID",
+  storageBucket: "PASTE_YOUR_BUCKET",
+  messagingSenderId: "PASTE_YOUR_SENDER_ID",
+  appId: "PASTE_YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.openOrderModal = function(){
+document.getElementById("orderModal").classList.add("active");
+}
+window.closeOrderModal = function(){
+document.getElementById("orderModal").classList.remove("active");
+}
+
+window.signup = async function(){
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+try{
+await createUserWithEmailAndPassword(auth,email,password);
+alert("Signup Successful ✅");
+}catch(error){alert(error.message);}
+}
+
+window.login = async function(){
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+try{
+await signInWithEmailAndPassword(auth,email,password);
+alert("Login Successful ✅");
+document.getElementById("orderSection").style.display="block";
+}catch(error){alert(error.message);}
+}
+
+window.placeOrder = async function(){
+const name=document.getElementById("name").value;
+const address=document.getElementById("address").value;
+const mobile=document.getElementById("mobile").value;
+const payment=document.getElementById("payment").value;
+
+await addDoc(collection(db,"orders"),{
+name,address,mobile,payment,createdAt:new Date()
 });
+
+alert("Order Placed Successfully 🔥");
+closeOrderModal();
+}
 </script>
+
 </body>
 </html>
